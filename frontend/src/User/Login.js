@@ -4,7 +4,9 @@ import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
+  const BACKEND_SERVER_URL = process.env.SERVER_URL;
   const [username, setUserId] = useState("");
   const [password, setPassword] = useState("");
 

@@ -1,1 +1,5 @@
 node_modules
+__tests__
+__init__.py
+__package__.py
+__pycache__

@@ -1,28 +1,29 @@
 // welcome page for user
 
+import { Button } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { isAuthenticated } from '../auth';
-import { Button } from "@chakra-ui/react";
 
 const Dashboard = () => {
-    const { user: { _id, name, email, role } } = isAuthenticated();
+  return (
+    <div>
+      <div>
+        <h1>Welcome to the User Dashboard</h1>
+        <Button>
+          <Link to="/user/vendorlist">Vendor List</Link>
+        </Button>
+        <Button>
+          <Link to="/user/cart">Cart</Link>
+        </Button>
+        <Button>
+          <Link to="/user/orderlist">Order List</Link>
+        </Button>
+        <Button>
+          <Link to="/user/guestlist">Guest List</Link>
+        </Button>
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h1>Dashboard</h1>
-            <h2>Welcome {name}</h2>
-            <ul>
-                <li>
-                <Button>
-                    <Link to={`/user/profile/${_id}`}>Profile</Link>
-                </Button>
-                </li>
-                <li>
-                    <Link to={`/user/orders/${_id}`}>Orders</Link>
-                </li>
-            </ul>
-        </div>
-    );
-}
 export default Dashboard;

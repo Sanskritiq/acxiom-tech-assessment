@@ -15,7 +15,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='AuthForm'>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <FormControl isRequired>

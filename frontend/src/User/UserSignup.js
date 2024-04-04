@@ -4,7 +4,7 @@ import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
+const UserSignup = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,8 +17,8 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h1>Signup</h1>
+    <div className="AuthForm">
+      <h1>User Signup</h1>
       <form onSubmit={handleSubmit}>
         <FormControl isRequired>
           <FormLabel>User Name</FormLabel>
@@ -47,10 +47,10 @@ const Signup = () => {
         <Button type="submit">Signup</Button>
       </form>
       <Button>
-        <Link to="/login">Login</Link>
+        <Link to="/user/login">Login</Link>
       </Button>
     </div>
   );
 };
 
-export default Signup;
+export default UserSignup;

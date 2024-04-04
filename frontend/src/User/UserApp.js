@@ -8,28 +8,27 @@
 // user/${_id}/orderlist
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { isAuthenticated } from './auth';
-import Login from './Login';
-import Signup from './Signup';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import GuestList from './GuestList';
 import VendorList from './VendorList';
 import Cart from './Cart';
 import OrderList from './OrderList';
+// import UserLogin from './UserLogin';
 
 const UserApp = () => {
-    const { user: { _id } } = isAuthenticated();
+    // const { user: { name, password } } = isAuthenticated();
     return (
-        <Switch>
-            <Route path="/user/login" component={Login} />
-            <Route path="/user/signup" component={Signup} />
-            <Route path="/user/:userId/dashboard" component={Dashboard} />
-            <Route path="/user/:userId/guestlist" component={GuestList} />
-            <Route path="/user/:userId/vendorlist" component={VendorList} />
-            <Route path="/user/:userId/cart" component={Cart} />
-            <Route path="/user/:userId/orderlist" component={OrderList} />
-        </Switch>
+        <BrowserRouter>
+            <Routes>
+            {/* <Route path="/user/login" element={UserLogin} /> */}
+            <Route path="/user/dashboard" component={Dashboard} />
+            <Route path="/user/guestlist" component={GuestList} />
+            <Route path="/user/vendorlist" component={VendorList} />
+            <Route path="/user/cart" component={Cart} />
+            <Route path="/user/orderlist" component={OrderList} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 

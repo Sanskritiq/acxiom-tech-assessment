@@ -1,27 +1,35 @@
 // make a login form that takes userid and password
 import React, { useState } from "react";
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, useToast } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-
-const Login = () => {
-  const BACKEND_SERVER_URL = process.env.SERVER_URL;
+const AdminLogin = () => {
   const [username, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Name:", username);
+    console.log("Admin Name:", username);
     console.log("Password", password);
+    toast({
+      title: "Login Successful",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "bottom",
+    });
+    navigate("/user/dashboard");
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="AuthForm">
+      <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
         <FormControl isRequired>
-          <FormLabel>User Name</FormLabel>
+          <FormLabel>Admin Name</FormLabel>
           <Input
             type="text"
             value={username}
@@ -45,4 +53,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
